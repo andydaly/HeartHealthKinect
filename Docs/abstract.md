@@ -1,0 +1,8 @@
+#Abstract
+The research presented in this abstract concern the utilization of Serious Games in terms of home-based patient rehabilitation. The main goal here is to attempt to provide motivation and enjoyment during the performance of exercises as well as monitor their condition and heartrate while using the Microsoft Kinect 2 integrated into a customized open sourced game engine.
+
+Serious games can be thought of as any game based interfaces that has been designed for any purpose other than entertainment. Serious games have been researched in the areas of: military, health, government and education. The design of these serious games can offer valuable contributions to develop effective games in the area of rehabilitation. As any other computer game, they are fundamentally intended to capture and keep a person’s attention.
+
+Patients that require rehabilitation for cardio-vascular diseases, balance re-training, rheumatoid arthritis rehabilitation, and rehabilitation following stroke, etc. must perform consistent exercises as a crucial element in their overall physical and mental rehabilitation. However patients at home tend to either only follow their programmes for a short period of time or do not follow them at all. The problem we are aiming to solve is that patients follow their exercise programmes regularly and to view it as a fun activity.
+
+This system will make use of the Microsoft Kinect 2 sensor of motion capture capability to track user movements and using the infrared sensor to monitor their heartbeat, the data capture in terms of user movements as well as monitoring the user's heartbeat may become useful in terms of diagnosing and/or rehabilitation of a patient.
