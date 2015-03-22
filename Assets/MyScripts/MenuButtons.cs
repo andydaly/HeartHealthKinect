@@ -33,10 +33,15 @@ public class MenuButtons : MonoBehaviour {
 
 		switch (buttonType) {
 		case ButtonType.Exercise:
-
+			Destroy (Camera.main.gameObject);
+			Destroy(this);
+			Application.LoadLevel("GameSelect");
 			break;
 		case ButtonType.Diary:
-
+			Destroy (Camera.main.gameObject);
+			Destroy(this);
+			Application.LoadLevel("DiaryScene");
+			break;
 			break;
 		case ButtonType.Medical:
 			Destroy (Camera.main.gameObject);

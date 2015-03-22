@@ -82,7 +82,9 @@ public class KinectManager : MonoBehaviour
 
 	// Bool to keep track of whether Kinect has been initialized
 	private bool kinectInitialized = false; 
-	
+
+
+
 	// The singleton instance of KinectManager
 	private static KinectManager instance = null;
 
@@ -125,6 +127,8 @@ public class KinectManager : MonoBehaviour
 	// Kinect to world matrix
 	private Matrix4x4 kinectToWorld = Matrix4x4.zero;
 	//private Matrix4x4 mOrient = Matrix4x4.zero;
+
+
 
 	// Calibration gesture data for each player
 	private Dictionary<Int64, KinectGestures.GestureData> playerCalibrationData = new Dictionary<Int64, KinectGestures.GestureData>();
@@ -2309,10 +2313,7 @@ public class KinectManager : MonoBehaviour
 	}
 
 
-	//public bool PlayersCalibrated()
-	//{
-	//	return AllPlayersCalibrated;
-	//}
+
 	
 }
 

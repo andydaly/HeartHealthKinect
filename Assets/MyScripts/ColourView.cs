@@ -8,7 +8,7 @@ public class ColourView : MonoBehaviour {
 	//public GUITexture backgroundImage;
 	public GameObject ImageWall;
 
-	public GUIText debugText;
+
 	
 	public bool displaySkeletonLines = false;
 	// Use this for initialization
@@ -52,12 +52,12 @@ public class ColourView : MonoBehaviour {
 			
 			//int iJointIndex = (int)trackedJoint;
 			
-			if(manager.IsUserDetected())
-			{
+			//if(manager.IsUserDetected())
+			//{
 				//long userId = manager.GetPrimaryUserID();
 				
 				
-			}
+			//}
 			
 		}
 	}
