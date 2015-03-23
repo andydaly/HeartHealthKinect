@@ -58,7 +58,7 @@ public class WorkoutListener : MonoBehaviour, KinectGestures.GestureListenerInte
 	public bool GestureCompleted (long userId, int userIndex, KinectGestures.Gestures gesture, 
 	                              KinectInterop.JointType joint, Vector3 screenPos)
 	{
-		string sGestureText = gesture + " detected";
+
 		//if(GestureInfo != null)
 		//{
 		//	GestureInfo.guiText.text = sGestureText;

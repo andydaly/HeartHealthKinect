@@ -111,8 +111,26 @@ public class EntriesDisplay : MonoBehaviour {
 
 		var workout = detailsDatabase.GetWorkout (PlayerPrefs.GetString("CurrentUser"), Entry);
 
-		TextDisplay.text = "Entry: " + workout.WorkoutNumber + "\n" + workout.WorkoutDate +  "\n" + workout.WorkoutType  + "\nWorkout Length: " + workout.WorkoutLength + "\nSquats: " + workout.SquatNum
-			+ " (Seconds)" + "\nJumping Jacks: " + workout.JumpNum + "\nAverage Heart Rate: " + workout.HeartRate + "\nMax Heart Rate: " + workout.MaxHeartRate;
 
+		string TextToDisplay;
+		if (workout.Comment != "")
+		{
+			if (workout.Comment.Length> 35)
+			{
+				string Comment1 = workout.Comment.Substring(0,35);
+				string Comment2 = workout.Comment.Substring(35);
+				TextToDisplay = "Entry: " + workout.WorkoutNumber + "\n" + workout.WorkoutDate +  "\n" + workout.WorkoutType  + "\nWorkout Length: " + workout.WorkoutLength + "\nSquats: " + workout.SquatNum
+					+ " (Seconds)" + "\nJumping Jacks: " + workout.JumpNum + "\nAverage Heart Rate: " + workout.HeartRate + "\nMax Heart Rate: " + workout.MaxHeartRate + "\n" + Comment1 + "\n" + Comment2;
+			}
+			else
+				TextToDisplay = "Entry: " + workout.WorkoutNumber + "\n" + workout.WorkoutDate +  "\n" + workout.WorkoutType  + "\nWorkout Length: " + workout.WorkoutLength + "\nSquats: " + workout.SquatNum
+					+ " (Seconds)" + "\nJumping Jacks: " + workout.JumpNum + "\nAverage Heart Rate: " + workout.HeartRate + "\nMax Heart Rate: " + workout.MaxHeartRate + "\nMedical Comment:\n" + workout.Comment;
+		}
+		else
+		{
+			TextToDisplay = "Entry: " + workout.WorkoutNumber + "\n" + workout.WorkoutDate +  "\n" + workout.WorkoutType  + "\nWorkout Length: " + workout.WorkoutLength + "\nSquats: " + workout.SquatNum
+				+ " (Seconds)" + "\nJumping Jacks: " + workout.JumpNum + "\nAverage Heart Rate: " + workout.HeartRate + "\nMax Heart Rate: " + workout.MaxHeartRate;
+		}
+		TextDisplay.text = TextToDisplay;
 	}
 }

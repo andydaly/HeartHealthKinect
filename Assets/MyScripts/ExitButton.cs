@@ -6,6 +6,7 @@ public class ExitButton : MonoBehaviour {
 	Color col;
 	// Use this for initialization
 	void Start () {
+		Screen.showCursor = true;
 		col  = renderer.material.color;
 	}
 	

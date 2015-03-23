@@ -42,7 +42,6 @@ public class MenuButtons : MonoBehaviour {
 			Destroy(this);
 			Application.LoadLevel("DiaryScene");
 			break;
-			break;
 		case ButtonType.Medical:
 			Destroy (Camera.main.gameObject);
 			Destroy(this);

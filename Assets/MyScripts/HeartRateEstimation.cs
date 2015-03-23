@@ -23,12 +23,12 @@ public class HeartRateEstimation : MonoBehaviour {
 	private int CurMaxHeartRate = 0;
 	private int MaxHeartRate1 = 0;
 	private int MaxHeartRate2 = 0;
-	private int TargetRate1Low = 0;
+	/*private int TargetRate1Low = 0;
 	private int TargetRate1High = 0;
 	private int TargetRate2Low = 0;
 	private int TargetRate2High = 0;
 	private int TargetRate3Low = 0;
-	private int TargetRate3High = 0;
+	private int TargetRate3High = 0;*/
 	private int RestHeartRate = 0;
 	private List<int> HeartRates = new List<int> ();
 	private KinectManager manager;
@@ -67,14 +67,14 @@ public class HeartRateEstimation : MonoBehaviour {
 		MaxHeartRate1 = GetMaximumHeartRate (detailsData.GetAge (PlayerPrefs.GetString ("CurrentUser")), data.FitnessLevel, data.IsMale);
 		MaxHeartRate2 = GetMaxHeartRateHeil (detailsData.GetAge (PlayerPrefs.GetString ("CurrentUser")), data.WeightKG, data.IsMale);
 		CurMaxHeartRate = (MaxHeartRate1 + MaxHeartRate2) / 2;
-
+		/*
 		TargetRate1Low = GetTargetHeartRate (CurMaxHeartRate, 1, 1);
 		TargetRate1High = GetTargetHeartRate (CurMaxHeartRate, 1, 3);
 		TargetRate2Low = GetTargetHeartRate (CurMaxHeartRate, 2, 1);
 		TargetRate2High = GetTargetHeartRate (CurMaxHeartRate, 2, 3);
 		TargetRate3Low = GetTargetHeartRate (CurMaxHeartRate, 3, 1);
 		TargetRate3High = GetTargetHeartRate (CurMaxHeartRate, 3, 3);
-
+		*/
 
 		RestHeartRate = GetRestingHeartRate (detailsData.GetAge (PlayerPrefs.GetString ("CurrentUser")), data.FitnessLevel);
 
@@ -139,7 +139,7 @@ public class HeartRateEstimation : MonoBehaviour {
 			}
 
 		}
-		Debug.Log ("Cooling: " + CoolDown + " Time since last action: " + TimeSinceLastAction);
+
 
 	}
 
