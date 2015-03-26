@@ -42,6 +42,7 @@ public class HeartRateEstimation : MonoBehaviour {
 	private bool StartingWorkout = false;
 	private int ActionsPerformedOrder = 0;
 	private float TimeSinceLastAction = 0.0f;
+	private int FitnessLevel = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -49,24 +50,14 @@ public class HeartRateEstimation : MonoBehaviour {
 		detailsData = new DatabasePDetails ();
 
 		var data = detailsData.GetPatient(PlayerPrefs.GetString("CurrentUser"));
+		FitnessLevel = data.FitnessLevel;
 
-		//Debug.Log("Max Heart Rate: " + GetMaximumHeartRate(25, 1) + " Resting Heart Rate: "+ GetRestingHeartRate(30, 1) + "  Heart Rate: "+GetTargetHeartRate(GetMaximumHeartRate(25, 1), 2, 1)+ " - " + GetTargetHeartRate(GetMaximumHeartRate(25, 1), 2, 3));
-
-		//Debug.Log ("rate: " + GetMaxHeartRateHeil (22, 63));
-		/*int Age = 20;
-		int weight = 60;
-		for (int i = 0; i <35; i++) {
-
-
-			Debug.Log ("Age: " + Age + " weight: " + weight + "kg Max rate: " + GetMaximumHeartRate (Age, 3)+ " Max heil rate: " + GetMaxHeartRateHeil (Age, 63));
-			Age +=3;
-			weight +=2;
-		}*/
-
-		HeartRate = GetRestingHeartRate (detailsData.GetAge (PlayerPrefs.GetString ("CurrentUser")), data.FitnessLevel);
+		HeartRate = GetRestingHeartRate (detailsData.GetAge (PlayerPrefs.GetString ("CurrentUser")), data.FitnessLevel, data.IsMale);
 		MaxHeartRate1 = GetMaximumHeartRate (detailsData.GetAge (PlayerPrefs.GetString ("CurrentUser")), data.FitnessLevel, data.IsMale);
 		MaxHeartRate2 = GetMaxHeartRateHeil (detailsData.GetAge (PlayerPrefs.GetString ("CurrentUser")), data.WeightKG, data.IsMale);
 		CurMaxHeartRate = (MaxHeartRate1 + MaxHeartRate2) / 2;
+
+
 		/*
 		TargetRate1Low = GetTargetHeartRate (CurMaxHeartRate, 1, 1);
 		TargetRate1High = GetTargetHeartRate (CurMaxHeartRate, 1, 3);
@@ -76,7 +67,7 @@ public class HeartRateEstimation : MonoBehaviour {
 		TargetRate3High = GetTargetHeartRate (CurMaxHeartRate, 3, 3);
 		*/
 
-		RestHeartRate = GetRestingHeartRate (detailsData.GetAge (PlayerPrefs.GetString ("CurrentUser")), data.FitnessLevel);
+		RestHeartRate = GetRestingHeartRate (detailsData.GetAge (PlayerPrefs.GetString ("CurrentUser")), data.FitnessLevel, data.IsMale);
 
 
 		Counter += TimeIntervalsForAverage;
@@ -273,18 +264,23 @@ public class HeartRateEstimation : MonoBehaviour {
 
 
 
-	private int GetRestingHeartRate (int Age, int FitnessLevel)
+	private int GetRestingHeartRate (int Age, int FitnessLevel, bool IsMale)
 	{
 		int RestingHeartRate = 0;
 		// FitnessLevels 1 (Athelete/Excellent) 2 (average) 3 (Poor)
 
 		// Average
+		if (IsMale)
+			RestingHeartRate += 5;
+		else
+			RestingHeartRate += 8;
+
 		if (FitnessLevel == 1)
-			RestingHeartRate += 52;
+			RestingHeartRate += 48;
 		else if (FitnessLevel == 2)
-			RestingHeartRate += 61;
+			RestingHeartRate += 59;
 		else if (FitnessLevel == 3)
-			RestingHeartRate += 74;
+			RestingHeartRate += 69;
 
 		if (Age < 25)
 			RestingHeartRate += 4;
@@ -308,13 +304,22 @@ public class HeartRateEstimation : MonoBehaviour {
 		if (HeartRate <= RestHeartRate)
 			StartingWorkout = true;
 
+		int Level = 0;
+
+		if (FitnessLevel == 1)
+			Level = 3;
+		else if (FitnessLevel == 2)
+			Level = 2;
+		else if (FitnessLevel == 2)
+			Level = 1;
+
 		if (StartingWorkout)
 			HeartRate += 1.95f;
 		else {
 
-			if (HeartRate >= GetTargetHeartRate(GetCurrentMaxHeartRate(), 1, 3))
+			if (HeartRate >= GetTargetHeartRate(GetCurrentMaxHeartRate(), Level, 3))
 			{
-				HeartRate += 0.89f;
+				HeartRate += 1.1f;
 			}
 			else
 			{
@@ -344,14 +349,22 @@ public class HeartRateEstimation : MonoBehaviour {
 		if (HeartRate <= RestHeartRate)
 			StartingWorkout = true;
 
+		int Level = 0;
+
+		if (FitnessLevel == 1)
+			Level = 3;
+		else if (FitnessLevel == 2)
+			Level = 2;
+		else if (FitnessLevel == 2)
+			Level = 1;
 
 		if (StartingWorkout)
 			HeartRate += 2.1f;
 		else {
 
-			if (HeartRate >= GetTargetHeartRate(GetCurrentMaxHeartRate(), 1, 3))
+			if (HeartRate >= GetTargetHeartRate(GetCurrentMaxHeartRate(), Level, 3))
 			{
-				HeartRate += 0.95f;
+				HeartRate += 1.5f;
 			}
 			else
 			{

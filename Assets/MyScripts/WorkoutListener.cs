@@ -5,7 +5,7 @@ public class WorkoutListener : MonoBehaviour, KinectGestures.GestureListenerInte
 
 
 
-	//public GUIText GestureInfo;
+
 	public GUIText WorkOutText;
 
 
@@ -18,7 +18,7 @@ public class WorkoutListener : MonoBehaviour, KinectGestures.GestureListenerInte
 	// Use this for initialization
 	void Start () {
 		manager = Camera.main.GetComponent<KinectManager>();
-			//KinectManager.Instance;
+			
 	}
 	
 
@@ -33,12 +33,7 @@ public class WorkoutListener : MonoBehaviour, KinectGestures.GestureListenerInte
 		manager.DetectGesture(userId, KinectGestures.Gestures.Jump);
 
 
-		//		manager.DetectGesture(userId, KinectGestures.Gestures.SwipeDown);
-		
-		//if(GestureInfo != null)
-		//{
-		//	GestureInfo.guiText.text = "Perform Squat or JumpingJack";
-		//}
+
 	}
 	
 	public void UserLost(long userId, int userIndex)
@@ -59,10 +54,7 @@ public class WorkoutListener : MonoBehaviour, KinectGestures.GestureListenerInte
 	                              KinectInterop.JointType joint, Vector3 screenPos)
 	{
 
-		//if(GestureInfo != null)
-		//{
-		//	GestureInfo.guiText.text = sGestureText;
-		//}
+
 		
 		if (gesture == KinectGestures.Gestures.Squat) {
 			SquatNum++;

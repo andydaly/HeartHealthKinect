@@ -10,7 +10,7 @@ public class ColourView : MonoBehaviour {
 
 
 	
-	public bool displaySkeletonLines = false;
+	//public bool displaySkeletonLines = false;
 	// Use this for initialization
 	void Start () {
 

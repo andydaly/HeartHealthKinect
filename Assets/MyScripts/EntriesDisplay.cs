@@ -113,8 +113,9 @@ public class EntriesDisplay : MonoBehaviour {
 
 
 		string TextToDisplay;
-		if (workout.Comment != "")
+		if (workout.Comment.Length > 0)
 		{
+			Debug.Log("working");
 			if (workout.Comment.Length> 35)
 			{
 				string Comment1 = workout.Comment.Substring(0,35);

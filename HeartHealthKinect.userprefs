@@ -1,10 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\MyScripts\MenuButtons.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\KinectScripts\KinectManager.cs">
     <Files>
+      <File FileName="Assets\MyScripts\LoginView.cs" Line="1" Column="1" />
+      <File FileName="Assets\MyScripts\EntriesDisplay.cs" Line="1" Column="1" />
       <File FileName="Assets\MyScripts\GameSelectButtons.cs" Line="1" Column="1" />
       <File FileName="Assets\MyScripts\SimonSaysListener.cs" Line="1" Column="1" />
-      <File FileName="Assets\MyScripts\WorkoutListener.cs" Line="61" Column="1" />
+      <File FileName="Assets\MyScripts\WorkoutListener.cs" Line="1" Column="1" />
       <File FileName="Assets\MyScripts\EditButton.cs" Line="1" Column="1" />
       <File FileName="Assets\MyScripts\LogoutButton.cs" Line="1" Column="1" />
       <File FileName="Assets\MyScripts\ColourView.cs" Line="1" Column="1" />
@@ -12,11 +14,10 @@
       <File FileName="Assets\MyScripts\DatabaseDDetails.cs" Line="1" Column="1" />
       <File FileName="Assets\MyScripts\DatabaseDtoP.cs" Line="1" Column="1" />
       <File FileName="Assets\MyScripts\DatabasePAccount.cs" Line="1" Column="1" />
-      <File FileName="Assets\MyScripts\DatabasePDetails.cs" Line="1" Column="1" />
+      <File FileName="Assets\MyScripts\DatabasePDetails.cs" Line="92" Column="4" />
       <File FileName="Assets\MyScripts\MongoHelper.cs" Line="1" Column="1" />
-      <File FileName="Assets\MyScripts\LoginView.cs" Line="1" Column="1" />
       <File FileName="Assets\MyScripts\Title.cs" Line="1" Column="1" />
-      <File FileName="Assets\MyScripts\MenuButtons.cs" Line="45" Column="1" />
+      <File FileName="Assets\MyScripts\MenuButtons.cs" Line="1" Column="1" />
       <File FileName="Assets\MyScripts\CurrentUser.cs" Line="1" Column="1" />
       <File FileName="Assets\MyScripts\ObjectLabel.cs" Line="1" Column="1" />
       <File FileName="Assets\MyScripts\ExitButton.cs" Line="1" Column="1" />
@@ -29,16 +30,15 @@
       <File FileName="Assets\KinectScripts\AvatarControllerClassic.cs" Line="1" Column="1" />
       <File FileName="Assets\KinectScripts\AvatarController.cs" Line="1" Column="1" />
       <File FileName="Assets\MyScripts\OrbBehaviour.cs" Line="1" Column="1" />
-      <File FileName="Assets\KinectScripts\KinectManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\KinectScripts\KinectManager.cs" Line="1465" Column="24" />
       <File FileName="Assets\MyScripts\SpawnOrbs.cs" Line="1" Column="1" />
       <File FileName="Assets\MyScripts\Calibration.cs" Line="1" Column="1" />
       <File FileName="Assets\MyScripts\ExerciseAdvice.cs" Line="1" Column="1" />
       <File FileName="Assets\MyScripts\SimonSaysGame.cs" Line="1" Column="1" />
       <File FileName="Assets\MyScripts\HeartRacerGame.cs" Line="1" Column="1" />
       <File FileName="Assets\MyScripts\PowerMeter.cs" Line="1" Column="1" />
-      <File FileName="Assets\MyScripts\EntriesDisplay.cs" Line="1" Column="1" />
       <File FileName="Assets\MyScripts\EntryDetails.cs" Line="1" Column="1" />
-      <File FileName="Assets\MyScripts\HeartRateEstimation.cs" Line="142" Column="3" />
+      <File FileName="Assets\MyScripts\HeartRateEstimation.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

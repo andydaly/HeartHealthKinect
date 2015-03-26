@@ -20,7 +20,7 @@ public class HeartAnimate : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		 currentrate = Camera.main.GetComponent<HeartRateEstimation> ().GetCurrentHeartRate ();
+		currentrate = Camera.main.GetComponent<HeartRateEstimation> ().GetCurrentHeartRate ();
 
 		rate = 60.0f/currentrate;
 

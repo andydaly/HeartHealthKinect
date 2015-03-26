@@ -78,6 +78,7 @@ using MongoDB.Bson.Serialization.Attributes;
             ConnectString = connectionString;
             patientdetails = new MongoHelper<PatientDetails>(ConnectString);
         }
+
 	public void Create(PatientDetails details)
 	{
 		DatabasePAccount logininfo = new DatabasePAccount(ConnectString);
