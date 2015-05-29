@@ -3,15 +3,15 @@ using System.Collections;
 
 public class CurrentUser : MonoBehaviour {
 
+	// used to display which user is currently logged in
+
+	// get GUItext to display username
 	public GUIText UsernameText;
 
-	// Use this for initialization
+
 	void Start () {
+		// Display current username
 		UsernameText.text = PlayerPrefs.GetString ("CurrentUser");
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 }

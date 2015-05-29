@@ -9,13 +9,13 @@ public class WorkoutListener : MonoBehaviour, KinectGestures.GestureListenerInte
 	public GUIText WorkOutText;
 
 
-	int SquatNum = 0;
-	int JumpNum = 0;
-	float workouttime = 0.0f;
-	bool WorkoutStarted = false;
+	private int SquatNum = 0;
+	private int JumpNum = 0;
+	private float workouttime = 0.0f;
+	private bool WorkoutStarted = false;
 
 	KinectManager manager;
-	// Use this for initialization
+
 	void Start () {
 		manager = Camera.main.GetComponent<KinectManager>();
 			
@@ -27,8 +27,6 @@ public class WorkoutListener : MonoBehaviour, KinectGestures.GestureListenerInte
 	public void UserDetected(long userId, int userIndex)
 	{
 		// detect these user specific gestures
-		 
-		
 		manager.DetectGesture(userId, KinectGestures.Gestures.Squat);
 		manager.DetectGesture(userId, KinectGestures.Gestures.Jump);
 
@@ -38,10 +36,7 @@ public class WorkoutListener : MonoBehaviour, KinectGestures.GestureListenerInte
 	
 	public void UserLost(long userId, int userIndex)
 	{
-		//if(GestureInfo != null)
-		//{
-		//	GestureInfo.guiText.text = string.Empty;
-		//}
+
 	}
 	
 	public void GestureInProgress(long userId, int userIndex, KinectGestures.Gestures gesture, 
@@ -55,11 +50,12 @@ public class WorkoutListener : MonoBehaviour, KinectGestures.GestureListenerInte
 	{
 
 
-		
+		// squat gesture is detected
 		if (gesture == KinectGestures.Gestures.Squat) {
 			SquatNum++;
 			Camera.main.transform.SendMessage ("SquatPerformed");
 		} 
+		// jump or jumping jack gesture is detected
 		else if (gesture == KinectGestures.Gestures.Jump) {
 			JumpNum++;
 			Camera.main.transform.SendMessage ("JumpPerformed");
@@ -81,13 +77,14 @@ public class WorkoutListener : MonoBehaviour, KinectGestures.GestureListenerInte
 	void Update () {
 
 		if (WorkOutText != null)
-		WorkOutText.guiText.text = "Squats: " + SquatNum + "\n" + "Jumping Jacks: " + JumpNum;
+			WorkOutText.guiText.text = "Squats: " + SquatNum + "\n" + "Jumping Jacks: " + JumpNum;
 
 		if (WorkoutStarted)
 		{
 			workouttime += Time.deltaTime;
 		}
 
+		// begine workout time, only if primary user calibrated
 		if (manager.IsUserCalibrated (manager.GetPrimaryUserID ())) {
 			WorkoutStarted = true;		
 		} 

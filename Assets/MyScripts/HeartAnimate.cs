@@ -8,20 +8,16 @@ public class HeartAnimate : MonoBehaviour {
 
 
 	private bool Beep = false;
-	float timer = 0.0f;
-	float rate = 0.0f;
-	int currentrate = 0;
-	// Use this for initialization
-	void Start () {
-		//rate = 56.0f/60.0f;
-		//Debug.Log (rate);
-	}
-	
-	// Update is called once per frame
-	void Update () {
+	private float timer = 0.0f;
+	private float rate = 0.0f;
+	private int currentrate = 0;
 
+
+	void Update () {
+		// gets current heart rate
 		currentrate = Camera.main.GetComponent<HeartRateEstimation> ().GetCurrentHeartRate ();
 
+		// to simulate heart beating, 60 is divided by current heart rate as heart rate measured in beats per minute
 		rate = 60.0f/currentrate;
 
 

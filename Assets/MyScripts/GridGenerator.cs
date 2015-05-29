@@ -3,6 +3,8 @@ using System.Collections;
 
 public class GridGenerator : MonoBehaviour {
 
+	// used for generation of nice grid background within menu screens
+
 	public GameObject Tile;
 	public int GridWidth = 10;
 	public int GridHeight = 10;

@@ -3,9 +3,10 @@ using System.Collections;
 
 public class SpawnOrbs : MonoBehaviour {
 
-	//public Transform StartSpawn; // Starting Spawn point position
-	public GUIText RoundsText;
-	public GUIText Announcement;
+	// this class must be attached to the camera
+
+	public GUIText RoundsText; // displays current round
+	public GUIText Announcement; // announcement to give information of game to user
 	public GameObject SpawnPoint; // Spawnpoint object, empty game object
 	public GameObject Orb1; // Orb 1 gameobject
 	public GameObject Orb2; // Orb 2 gameobject
@@ -13,28 +14,28 @@ public class SpawnOrbs : MonoBehaviour {
 	public int NumY = 10; // Number of spawn points on y
 
 	public float TimeIntervals = 1.0f; // Time between orb spawn
-	public int RoundsUntilDifficulty = 2;
-	public float BreakTimeLimit = 3.0f;
+	public int RoundsUntilDifficulty = 2; // how many rounds until game difficulty increases
+	public float BreakTimeLimit = 3.0f; // How long rest between rounds is
 	
-	KinectManager manager;
-	float TimeLimit = 0.0f;
-	PowerMeter meter;
-	GameObject[,] SpawnPoints = new GameObject[20,20];
-	GameObject[] Orbs = new GameObject[100];
+	private KinectManager manager; // kinect manger class
+	private float TimeLimit = 0.0f;
+	private PowerMeter meter; // power meter used by game to determine progression
+	private GameObject[,] SpawnPoints = new GameObject[20,20]; // 2D array of spawnpoints where orbs may spawn
+	private GameObject[] Orbs = new GameObject[100]; // array of all the orbs which can be spawned
 
 
 
-	Transform StartSpawn;
-	int Count = 0;
+	private Transform StartSpawn; // beginning start spawn position, determined by spawnpoint gameobject postion
+	private int Count = 0; // count used to set orb with orbs arraya
 
-	int Orb1Count = 0;
-	int Orb2Count = 0;
-	int Orb1Score = 0;
-	int Orb2Score = 0;
-	string ScoreString;
-	int CurrentRound = 1;
-	float BreakTimer = 0.0f;
-	bool DestroyAll = true;
+	private int Orb1Count = 0;
+	private int Orb2Count = 0;
+	private int Orb1Score = 0;
+	private int Orb2Score = 0;
+	private string ScoreString; // string for current score
+	private int CurrentRound = 1; // starting round
+	private float BreakTimer = 0.0f; // rest timer
+	private bool DestroyAll = true; // bool to destroy all orbs on screen
 	
 	public void OrbAdd()
 	{
@@ -141,7 +142,8 @@ public class SpawnOrbs : MonoBehaviour {
 					if (Count >= 100) {
 						Count = 0;
 					}
-					
+
+					// randomly decides if red or green orb spawned
 					int num = Random.Range (1, 3);
 					if (num == 1) {
 						Orbs [Count] = (GameObject)Instantiate (Orb2, SpawnPoints [PointX, PointY].transform.localPosition, SpawnPoints [PointX, PointY].transform.rotation);

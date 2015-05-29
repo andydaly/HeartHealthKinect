@@ -7,10 +7,10 @@ public class ExerciseAdvice : MonoBehaviour {
 	public float TextChangeIntervals = 5.0f;
 	public int WorkoutLevel = 1;
 
-	string[] HelpTexts = new string[10];
-	int Count = 0;
-	float Timer = 0.0f;
-	// Use this for initialization
+	private string[] HelpTexts = new string[10];
+	private int Count = 0;
+	private float Timer = 0.0f;
+
 	void Start () {
 
 
@@ -21,7 +21,7 @@ public class ExerciseAdvice : MonoBehaviour {
 		}
 	}
 	
-	// Update is called once per frame
+
 	void Update () {
 	
 		HelpTexts[0] = "Press ESC to Exit";

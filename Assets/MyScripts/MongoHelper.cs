@@ -21,12 +21,7 @@ using MongoDB.Driver.Builders;
         public MongoHelper()
         {
 
-            //MongoClient client = new MongoClient(new MongoUrl("mongodb://localhost"));
-            //MongoClient client = new MongoClient(new MongoUrl("mongodb://MongoLab-f:WWbQ.o5xQSOIU7fKjXqtCubyg_iD9BZVoSrCIFfKk.0-@ds062797.mongolab.com:62797/MongoLab-f"));
-            //MongoClient client = new MongoClient(new MongoUrl("mongodb://Andrew:----@ds062797.mongolab.com:62797/MongoLab-f"));
-
-            
-            mongoUrl = new MongoUrl("mongodb://MongoLab-f:WWbQ.o5xQSOIU7fKjXqtCubyg_iD9BZVoSrCIFfKk.0-@ds062797.mongolab.com:62797/MongoLab-f");
+            MongoClient client = new MongoClient(new MongoUrl("mongodb://localhost"));
             
             
             client = new MongoClient(mongoUrl);           

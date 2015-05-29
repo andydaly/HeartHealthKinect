@@ -4,6 +4,7 @@ using System.Collections;
 public class GameSelectButtons : MonoBehaviour {
 
 
+
 	public enum GameSelectType : int { Basic, SimonSays, HeartRacer, Orbs }
 	
 	public GameSelectType gameType = GameSelectType.Basic;
@@ -12,16 +13,12 @@ public class GameSelectButtons : MonoBehaviour {
 
 	private Color col;
 	private string DefaultText;
-	// Use this for initialization
+
 	void Start () {
 		col  = renderer.material.color;
 		DefaultText = DetailsText.text;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 
 
 	void OnMouseEnter() {

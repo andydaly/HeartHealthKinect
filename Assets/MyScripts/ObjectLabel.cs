@@ -10,9 +10,9 @@ public class ObjectLabel : MonoBehaviour {
 	public float clampBorderSize = 0.05f;  // How much viewport space to leave at the borders when a label is being clamped
 	public bool useMainCamera = true;   // Use the camera tagged MainCamera
 	public Camera cameraToUse ;   // Only use this if useMainCamera is false
-	Camera cam ;
-	Transform thisTransform;
-	Transform camTransform;
+	private Camera cam ;
+	private Transform thisTransform;
+	private Transform camTransform;
 	
 	void Start () 
 	{

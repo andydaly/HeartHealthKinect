@@ -4,37 +4,48 @@ using System.Collections;
 
 public class EntriesDisplay : MonoBehaviour {
 		
-		
-	//public GameObject CubeDisplay;
+	// Entries display is used to display currently selected workout details
+
+
+	// get guitext to display current observed workout details
 	public GUIText TextDisplay;
-		
+
+	// get EntryBlock perfab to be used as a basis for displaying each workout
 	public GameObject EntryBlock;
+
+	// get its text which is a perfab for labeling each block
 	public GUIText EntryText;
 		
 	private DatabasePDetails detailsDatabase;
-		
+
+	// Count is used to dispplay the number of workout entries
 	private int Count = 0;
-		//int point = 0;
+
+	// this is the current entry selected
 	private int CurrentEntry = 0;
+
+	// array of all the enties
 	private GameObject[] cubeEntries;
+
+	// array of all the guitext entries
 	private GUIText[] textEntries;
-	private GUIText Details;
+
 		
-		
-		
-		
-	Vector3 FirstCubePos;
-	Vector3 LastCubePos;
+	// these are for screen postions to scroll through entries
+	private Vector3 FirstCubePos;
+	private Vector3 LastCubePos;
 
 
 
-		// Use this for initialization
+
 	void Start () {
+		// sets up an array of 50, this is to be altered as the workout array can most definately exceed this
 		cubeEntries = new GameObject[50];
 		textEntries = new GUIText[50];
 			
 		detailsDatabase = new DatabasePDetails ();
-		
+
+		//gets all workouts performed by current user logged in
 		var workouts = detailsDatabase.GetAllWorkouts (PlayerPrefs.GetString ("CurrentUser"));
 
 		Vector3 cubepos = EntryBlock.transform.localPosition;
@@ -44,6 +55,7 @@ public class EntriesDisplay : MonoBehaviour {
 		if (Count > 0) {
 			
 			int i = 1;
+			// an entrie is created for wach workout
 			foreach (PatientWorkout workout in workouts) {
 				
 				cubeEntries [i] = (GameObject)Instantiate (EntryBlock, cubepos, EntryBlock.transform.rotation);
@@ -64,7 +76,7 @@ public class EntriesDisplay : MonoBehaviour {
 		}
 	}
 		
-		// Update is called once per frame
+		
 	void Update () {
 		if (Count > 3) {
 			if (Input.mousePosition.y < 15) {
@@ -113,9 +125,10 @@ public class EntriesDisplay : MonoBehaviour {
 
 
 		string TextToDisplay;
+		// if doctor has written a comment
 		if (workout.Comment.Length > 0)
 		{
-			Debug.Log("working");
+			// if string too large split it
 			if (workout.Comment.Length> 35)
 			{
 				string Comment1 = workout.Comment.Substring(0,35);

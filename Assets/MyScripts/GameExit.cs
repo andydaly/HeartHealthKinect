@@ -4,11 +4,12 @@ using System.Collections;
 
 public class GameExit : MonoBehaviour {
 
+	// will data be captured once game is exited?
 	public bool CaptureData = false;
 
-	bool WorkoutStarted = false;
-	KinectManager manager;
-	DatabasePDetails detailsdata;
+	private bool WorkoutStarted = false;
+	private KinectManager manager;
+	private DatabasePDetails detailsdata;
 
 
 	void Start () {
